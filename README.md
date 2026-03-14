@@ -258,7 +258,7 @@ make
 
 ---
 
-### 🐧 Linux (Debian/Ubuntu)
+### Linux (Debian/Ubuntu)
 
 ```bash
 sudo apt update && sudo apt install g++ make libsdl2-dev libsdl2-ttf-dev
