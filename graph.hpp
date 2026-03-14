@@ -1,3 +1,29 @@
+/**
+ * @file graph.hpp
+ * @brief Déclaration des fonctions graphiques SDL2 pour le rendu de FoxWar.
+ *
+ * @details
+ * Ce fichier regroupe toutes les fonctions d'affichage et de gestion des événements
+ * SDL2 utilisées par FoxWar. L'architecture graphique est la suivante :
+ *
+ *  - `ecranDacceuil()` : affiche le menu principal et redirige vers FoxWar ou debug
+ *  - `FoxWar()` : boucle principale de simulation avec rendu frame par frame
+ *  - `AffichePlateau()` : rend la grille de jeu (cases, animaux via sprites BMP)
+ *  - `afficherRecensement()` : superpose le compteur lapins/renards
+ *  - `initialisation()` : dessine la grille vide (cases en alternance de couleurs)
+ *  - `afficheTexte()` : rendu de texte SDL_ttf à position fixe
+ *  - `afficheImage()` : rendu d'une image BMP à une destination SDL_Rect
+ *  - `coordTab()` : précalcule les SDL_Rect de chaque case de la grille
+ *  - `toucheMouvement_SDL()` : lit les événements clavier/souris
+ *  - `debugMode()` / `ecranDacceuilDebug()` : mode debug graphique
+ *  - `modeOption()` : menu des options (délai d'animation, etc.)
+ *
+ * Dépendances : SDL2, SDL2_ttf (installation via Homebrew sur macOS).
+ *
+ * @author Équipe projet Simulation Comportement Animal
+ * @date 2024
+ */
+
 #define SDL_MAIN_HANDLED 
 #include <string>
 #include <cstdlib>

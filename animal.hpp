@@ -1,3 +1,30 @@
+/**
+ * @file animal.hpp
+ * @brief Déclaration de la classe Animal et des énumérations Espece / Sexe.
+ *
+ * @details
+ * Un Animal est caractérisé par :
+ *  - Son identifiant unique (id), ses coordonnées (Coord), son espèce (Espece) et son sexe (Sexe)
+ *  - Sa satiété (satiete, initialisée à FoodInit=5, max MaxFood=10)
+ *  - Son âge (croissant via `viellit()`)
+ *
+ * Paramètres de simulation (définis dans la classe) :
+ *  | Paramètre          | Valeur | Description                               |
+ *  |--------------------|--------|-------------------------------------------|
+ *  | FoodInit           | 5      | Satiété initiale et gain au repas         |
+ *  | FoodLapin          | 5      | Gain de satiété du renard après manger lapin |
+ *  | MaxFood            | 10     | Satiété maximale                          |
+ *  | FoodReprod         | 8      | Seuil de satiété pour se reproduire        |
+ *  | ProbBirthRenard    | 0.05   | Probabilité de naissance renard (5%)      |
+ *  | ageMaxRenard       | 28     | Âge maximal d'un renard                   |
+ *  | MinFreeBirthLapin  | 4      | Cases libres minimales pour naissance lapin |
+ *  | ProbBirthLapin     | 0.4    | Probabilité de naissance lapin (40%)      |
+ *  | ageMaxLapin        | 15     | Âge maximal d'un lapin                    |
+ *
+ * @author Équipe projet Simulation Comportement Animal
+ * @date 2024
+ */
+
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 #include "coord.hpp"

@@ -16,14 +16,14 @@
 
 ## Stack technique
 
-| Composant        | Technologie         |
-|-----------------|---------------------|
-| Langage          | C++17               |
-| Rendu graphique  | SDL2 + SDL2_ttf     |
-| Tests unitaires  | doctest (embarqué)  |
-| Build            | Makefile (MinGW)    |
-| Assets           | Images BMP + COMIC.TTF |
-| Plateforme cible | Windows (MinGW/MSYS2) |
+| Composant        | Technologie                         |
+|-----------------|-------------------------------------|
+| Langage          | C++17                               |
+| Rendu graphique  | SDL2 + SDL2_ttf                     |
+| Tests unitaires  | doctest (embarqué)                  |
+| Build            | Makefile (détection auto plateforme)|
+| Assets           | Images BMP + COMIC.TTF              |
+| Plateformes      | Windows (MinGW/MSYS2), macOS (Homebrew, Apple Silicon) |
 
 ---
 
@@ -45,8 +45,7 @@ Simulation-Comportement-Animal/
 │
 ├── *.bmp                         ← Assets visuels (R, Lj, La, Lv, A, C, E, O, foret…)
 ├── COMIC.TTF                     ← Police SDL pour l'affichage texte
-├── Makefile                      ← Compilation MinGW (SDL2 statique)
-└── README.txt                    ← Note d'origine (Windows/MinGW uniquement)
+└── Makefile                      ← Compilation multi-plateforme (auto-détection)
 ```
 
 ---
@@ -183,28 +182,89 @@ Renard : si satiete ≥ 8 ET (r ≤ ProbBirthRenard*100)
 
 ## Installation & Lancement
 
->  **Ce projet est compilé pour Windows via MinGW.** Il nécessite SDL2 et SDL2_ttf liées statiquement.
+Le Makefile détecte automatiquement la plateforme (macOS/Linux/Windows) et adapte les chemins SDL2.
 
-### Prérequis
+---
 
-- [MinGW-w64](https://www.mingw-w64.org/) ou MSYS2
-- SDL2 et SDL2_ttf (headers + libs statiques)
+### 🍎 macOS (Apple Silicon — M1 / M2 / M3 / M4 Pro)
 
-### Compilation
+#### 1. Installer les dépendances via Homebrew
+
+Si Homebrew n'est pas encore installé :
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Installer SDL2 et SDL2_ttf :
+
+```bash
+brew install sdl2 sdl2_ttf
+```
+
+> Sur Apple Silicon, Homebrew s'installe dans `/opt/homebrew` (détecté automatiquement par le Makefile).
+
+#### 2. Installer les outils de compilation
+
+```bash
+xcode-select --install
+```
+
+Cela installe `g++` (Clang/LLVM) et `make`.
+
+#### 3. Compiler
 
 ```bash
 make
 ```
 
-Le Makefile génère un exécutable lié statiquement avec SDL2, SDL2_ttf et les librairies système MinGW.
-
-### Lancement
+#### 4. Lancer
 
 ```bash
-./foxwar.exe
+./Main
 ```
 
-Tous les assets (*.bmp, COMIC.TTF) doivent être dans le même répertoire que l'exécutable.
+> Assurez-vous que tous les assets (`*.bmp`, `COMIC.TTF`) sont dans le même répertoire que l'exécutable.
+
+#### Diagnostic macOS
+
+```bash
+# Vérifier que SDL2 est bien trouvé
+sdl2-config --version
+sdl2-config --cflags --libs
+
+# Vérifier l'architecture du binaire compilé (doit afficher arm64)
+file Main
+```
+
+---
+
+### 🪟 Windows (MinGW / MSYS2)
+
+#### 1. Installer MSYS2
+
+Télécharger depuis [msys2.org](https://www.msys2.org/) et installer les paquets :
+
+```bash
+pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-SDL2_ttf make
+```
+
+#### 2. Compiler et lancer
+
+```bash
+make
+./Main.exe
+```
+
+---
+
+### 🐧 Linux (Debian/Ubuntu)
+
+```bash
+sudo apt update && sudo apt install g++ make libsdl2-dev libsdl2-ttf-dev
+make
+./Main
+```
 
 ---
 

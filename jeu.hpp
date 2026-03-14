@@ -1,3 +1,29 @@
+/**
+ * @file jeu.hpp
+ * @brief Déclaration de la classe Jeu — moteur principal de la simulation FoxWar.
+ *
+ * @details
+ * La classe Jeu orchestre l'ensemble de la simulation en combinant :
+ *  - Une `Grille` (terrain 20×20 avec obstacles et cases eau)
+ *  - Une `Population` (ensemble des animaux actifs, lapins et renards)
+ *
+ * La méthode centrale est `mouvements()`, qui exécute un tour complet :
+ *  1. Pour chaque animal (ordre aléatoire via Ensemble) :
+ *     - Vieillissement via `viellit()`
+ *     - Vérification de mort (`meurt()`) → suppression si nécessaire
+ *     - Déplacement vers une case voisine libre (lapin) ou occupée par lapin (renard)
+ *     - Alimentation (renard mange lapin voisin, lapin boit eau voisine)
+ *     - Reproduction si conditions réunies (satiété ≥ FoodReprod, voisin sexe opposé,
+ *       probabilité selon espèce)
+ *
+ * Deux constructeurs sont disponibles :
+ *  - `Jeu()` : initialisation standard (7% renards, 20% lapins aléatoirement)
+ *  - `Jeu(string)` : initialise avec un unique animal d'une espèce donnée (tests)
+ *
+ * @author Équipe projet Simulation Comportement Animal
+ * @date 2024
+ */
+
 #ifndef JEU_HPP
 #define JEU_HPP
 #include "ensemble.hpp"

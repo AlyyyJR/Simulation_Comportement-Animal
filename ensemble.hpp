@@ -1,3 +1,17 @@
+/**
+ * @file ensemble.hpp
+ * @brief Déclaration de la classe Ensemble — un ensemble fini d'entiers avec tirage aléatoire.
+ *
+ * @details
+ * La classe Ensemble modélise un multiensemble d'entiers de taille bornée (MAXCARD).
+ * Elle est utilisée dans la simulation pour stocker et manipuler des ensembles de
+ * coordonnées converties en entiers (cases voisines, cases libres, IDs d'animaux, etc.).
+ * L'opération clé est `tire()` qui extrait et retourne un élément aléatoire.
+ *
+ * @author Équipe projet Simulation Comportement Animal
+ * @date 2024
+ */
+
 #include <vector> 
 #include <iostream>
 

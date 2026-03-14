@@ -1,3 +1,19 @@
+/**
+ * @file coord.hpp
+ * @brief Déclaration de la classe Coord — coordonnées 2D sur la grille de simulation.
+ *
+ * @details
+ * La classe Coord représente une position (x, y) sur la grille 20×20 de la simulation.
+ * Elle fournit :
+ *  - Une conversion vers un entier linéaire via `toInt()` (formule : y*TAILLEGRILLE + x)
+ *  - Le calcul des 8 cases voisines (Moore voisinage) via `voisines()`
+ *  - Les opérateurs de comparaison == et != ainsi que l'affichage via <<
+ * Un constructeur `Coord(int)` permet l'opération inverse (entier → coordonnée 2D).
+ *
+ * @author Équipe projet Simulation Comportement Animal
+ * @date 2024
+ */
+
 #include "ensemble.hpp"
 #include <vector>
 #include <iostream>

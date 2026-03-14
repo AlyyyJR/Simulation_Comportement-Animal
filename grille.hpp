@@ -1,3 +1,26 @@
+/**
+ * @file grille.hpp
+ * @brief Déclaration de la classe Grille — terrain 20×20 de la simulation.
+ *
+ * @details
+ * La Grille est un tableau 2D d'entiers (`vector<vector<int>>`) de taille TAILLEGRILLE×TAILLEGRILLE.
+ * Chaque case est encodée comme suit :
+ *
+ *  | Valeur | Signification                |
+ *  |--------|------------------------------|
+ *  | -1     | Case vide (aucun élément)    |
+ *  | -2     | Arbre (obstacle)             |
+ *  | -3     | Rocher (obstacle)            |
+ *  | -4     | Eau (source de nourriture)   |
+ *  | ≥ 0    | ID de l'animal présent       |
+ *
+ * Les méthodes `caseVide`, `caseArbre`, `caseRocher`, `caseEau` permettent
+ * d'interroger rapidement le type d'une case à partir d'une coordonnée Coord.
+ *
+ * @author Équipe projet Simulation Comportement Animal
+ * @date 2024
+ */
+
 #ifndef GRILLE_HPP
 #define GRILLE_HPP
 #include "coord.hpp"
