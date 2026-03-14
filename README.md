@@ -186,7 +186,7 @@ Le Makefile détecte automatiquement la plateforme (macOS/Linux/Windows) et adap
 
 ---
 
-### 🍎 macOS (Apple Silicon — M1 / M2 / M3 / M4 Pro)
+### macOS (Apple Silicon — M1 / M2 / M3 / M4 Pro)
 
 #### 1. Installer les dépendances via Homebrew
 
@@ -239,7 +239,7 @@ file Main
 
 ---
 
-### 🪟 Windows (MinGW / MSYS2)
+### Windows (MinGW / MSYS2)
 
 #### 1. Installer MSYS2
 
